@@ -239,7 +239,7 @@ function exercise8(graphPath::String)
     @printf("------------------------------------------------------\n")
 
     g::SimpleGraph{Int64} = loadgraph(graphPath, "graph")
-    eccentricity(g)
+    1 ./ eccentricity(g)
     nothing
 end
 
@@ -300,13 +300,18 @@ function exercise12(graphPath::String, k::Int64)
     @printf("Exercise 12: Approximation of closeness centrality\n")
     @printf("------------------------------------------------------\n")
 
-    g::SimpleGraph{Int64} = loadgraph(graphPath, "graph")
-    farness::Array{Float64} = zeros(Float64, nv(g))
-    for _ in 1:k
-        farness = farness + gdistances(g, rand(1:nv(g)))
+    @time begin
+        g::SimpleGraph{Int64} = loadgraph(graphPath, "graph")
+        farness::Array{Float64} = zeros(Float64, nv(g))
+        for _ in 1:k
+            farness = farness + gdistances(g, rand(1:nv(g)))
+        end
+        @printf("Sample size: %d\n", k)
+
+        apx_centrality::Array{Float64} = (k * (nv(g) - 1)) ./ (nv(g) .* farness)
     end
-    @printf("Sample size: %d\n", k)
-    println("Value: ", (k * (nv(g) - 1)) ./ (nv(g) .* farness))
+    exact_centrality::Array{Float64} = closeness_centrality(g)
+    @printf("Correlation with the exact values: %f\n", cor(apx_centrality, exact_centrality))
     nothing
 end
 
@@ -338,6 +343,6 @@ const graphPath::String = joinpath("graphs", "douban.maxcc.lg")
 #time exercise8(graphPath)
 #@time exercise9(graphPath)
 #@time exercise10(graphPath)
-@time exercise11(graphPath)
-#@time exercise12(graphPath, 10000)
+#@time exercise11(graphPath)
+@time exercise12(graphPath, 10000)
 #@time exercise13(graphPath)
