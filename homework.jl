@@ -313,7 +313,7 @@ end
 
 const graphPath::String = joinpath("graphs", "douban.maxcc.lg")
 
-@time exercise1(graphPath)
+#@time exercise1(graphPath)
 #@time exercise2(graphPath)
 #@time exercise2_mt(graphPath)
 #@time exercise3(graphPath, 100)
@@ -325,6 +325,6 @@ const graphPath::String = joinpath("graphs", "douban.maxcc.lg")
 #time exercise8(graphPath)
 #@time exercise9(graphPath)
 #@time exercise10(graphPath)
-#@time exercise11(graphPath)
+@time exercise11(graphPath)
 #@time exercise12(graphPath, 10000)
 #@time exercise13(graphPath)
