@@ -1,6 +1,5 @@
 using Pkg
 Pkg.add("Downloads")
-Pkg.add("CSV")
 Pkg.add("CodecBzip2")
 Pkg.add("Tar")
 Pkg.add("Graphs")
