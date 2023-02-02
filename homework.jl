@@ -132,6 +132,19 @@ function exercise3(graphPath::String, multiplier::Int64)
     nothing
 end
 
+function exercise3_mt(graphPath::String, multiplier::Int64)
+    @printf("\n\n")
+    @printf("------------------------------------------------------\n")
+    @printf("Exercise 3: Approximation of Degrees of Separation\n")
+    @printf("------------------------------------------------------\n")
+    g::SimpleGraph{Int64} = loadgraph(graphPath, "graph")
+    k::Int64 = multiplier * trunc(log2(nv(g)))
+    @printf("Sample size: %d\n", k)
+    dd_apx::Array{Float64} = distance_distribution_mt(g, k)
+    @printf("Value: %f\n", degrees_of_separation(dd_apx))
+    nothing
+end
+
 """ Exercise Plot"""
 function exercise_plot(graphPath::String)
     @printf("\n\n")
