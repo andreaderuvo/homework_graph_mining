@@ -25,3 +25,7 @@ julia konect.jl
 ```
 julia homework.jl
 ```
+
+# Credits
+
+Most of the code in homework.jl is a copy paste of the code written by Pierluigi Crescenzi ([repo](https://github.com/piluc/GraphMining/tree/main/code))
