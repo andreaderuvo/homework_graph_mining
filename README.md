@@ -2,7 +2,7 @@
 
 How to execute the homework:
 
-Create your *_konect.jl configuration file to configure your [konect.cc](http://konect.cc/networks/) network. This file is included in konect.jl.
+Create your *_konect.jl configuration file to configure your [konect.cc](http://konect.cc/networks/){:target="_blank"} network. This file is included in konect.jl.
 
 Example:
 ```
