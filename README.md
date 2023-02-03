@@ -1,4 +1,4 @@
-# homework_graph_mining
+# Graph Mining Homework
 
 How to execute the homework:
 
