@@ -21,7 +21,7 @@ julia package.jl
 julia konect.jl
 ```
 
-3. Launch the homework
+3. Launch the homework uncommenting the exercise* function of interest
 ```
 julia homework.jl
 ```
