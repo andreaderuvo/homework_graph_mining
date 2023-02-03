@@ -1,7 +1,5 @@
 using Downloads
 using Tar
-using CSV
-using DataFrames
 using CodecBzip2
 using Dates
 using Graphs
