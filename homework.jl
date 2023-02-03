@@ -1,14 +1,11 @@
 """
 Graph Mining Homework
 
-Student: Andrea de Ruvo
-Professor: Pierluigi Crescenzi
+Student: Andrea de Ruvo (andrea.deruvo@gssi.it)
+Professor: Pierluigi Crescenzi (pierluigi.crescenzi@gssi.it)
 
 Most of the code is a copy paste of Pierluigi Crescenzi's codes (https://github.com/piluc/GraphMining/tree/main/code).
-Plots package is commented due to problems to have a running version on Windows.
 
-Code link:
-LG Graph link:
 """
 
 using Graphs
@@ -20,7 +17,6 @@ using Plots
 
 """ Exercise 1 """
 function exercise1(graphPath::String)
-    @printf("\n\n")
     @printf("-----------------------\n")
     @printf("Exercise 1\n")
     @printf("-----------------------\n")
@@ -36,7 +32,6 @@ end
 
 """ Exercise 2 """
 function exercise2(graphPath::String)
-    @printf("\n\n")
     @printf("--------------------------------------\n")
     @printf("Exercise 2: Degrees of Separation\n")
     @printf("--------------------------------------\n")
@@ -52,7 +47,6 @@ function exercise2(graphPath::String)
 end
 
 function exercise2_mt(graphPath::String)
-    @printf("\n\n")
     @printf("-----------------------------------------------------\n")
     @printf("Exercise 2 (MultiThreading): Degrees of Separation\n")
     @printf("-----------------------------------------------------\n")
@@ -120,7 +114,6 @@ function distance_distribution_mt(g::SimpleGraph{Int64})::Array{Float64}
 end
 
 function exercise3(graphPath::String, multiplier::Int64)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 3: Approximation of Degrees of Separation\n")
     @printf("------------------------------------------------------\n")
@@ -133,7 +126,6 @@ function exercise3(graphPath::String, multiplier::Int64)
 end
 
 function exercise3_mt(graphPath::String, multiplier::Int64)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 3: Approximation of Degrees of Separation\n")
     @printf("------------------------------------------------------\n")
@@ -147,7 +139,6 @@ end
 
 """ Exercise Plot"""
 function exercise_plot(graphPath::String)
-    @printf("\n\n")
     @printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
     @printf("Exercise 3 plot: Include a figure with the plots of the exact and approximate distance distribution (similar to the right part of Figure 2.3 in the lecture notes).\n")
     @printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
@@ -163,7 +154,6 @@ end
 
 """ Exercise 4 """
 function exercise4(graphPath::String)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 4: Diameter textbook algorithm\n")
     @printf("------------------------------------------------------\n")
@@ -175,7 +165,6 @@ end
 
 """ Exercise 5 """
 function exercise5(graphPath::String, k::Int64)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 5: 2-sweep algorithm (100 runs)\n")
     @printf("------------------------------------------------------\n")
@@ -199,7 +188,6 @@ function max_degree_node(g::SimpleGraph{Int64})::Int64
 end
 
 function exercise6(graphPath::String)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 6: iFUB algorithm\n")
     @printf("------------------------------------------------------\n")
@@ -221,7 +209,6 @@ end
 
 """ Exercise 7 """
 function exercise7(graphPath::String)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 7: Degree centrality\n")
     @printf("------------------------------------------------------\n")
@@ -233,7 +220,6 @@ end
 
 """ Exercise 8 """
 function exercise8(graphPath::String)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 8: Eccentricity centrality\n")
     @printf("------------------------------------------------------\n")
@@ -245,7 +231,6 @@ end
 
 """ Exercise 9 """
 function exercise9(graphPath::String)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 9: Closeness centrality\n")
     @printf("------------------------------------------------------\n")
@@ -257,7 +242,6 @@ end
 
 """ Exercise 10 """
 function exercise10(graphPath::String)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 10: Betweenness centrality\n")
     @printf("------------------------------------------------------\n")
@@ -269,7 +253,6 @@ end
 
 """ Exercise 11 """
 function exercise11(graphPath::String)
-    @printf("\n\n")
     @printf("-------------------------------------------------------------------------------------------------------------------------------------\n")
     @printf("Exercise 11: Insert the values in the following table of correlation between the four centrality measures we have seen in class.\n")
     @printf("-------------------------------------------------------------------------------------------------------------------------------------\n")
@@ -281,8 +264,6 @@ function exercise11(graphPath::String)
     @time c::Array{Float64} = closeness_centrality(g)
     @time b::Array{Float64} = betweenness_centrality(g)
     
-    println([[cor(d, e), cor(d, c), cor(d, b)], [cor(e, c), cor(e, b)], [cor(c, b)]])
-
     @printf("Correlation(degree,eccentricity): %f\n", cor(d, e))
     @printf("Correlation(degree,closeness): %f\n", cor(d, c))
     @printf("Correlation(degree,betweenness): %f\n", cor(d, b))
@@ -295,7 +276,6 @@ end
 
 """ Exercise 12 """
 function exercise12(graphPath::String, k::Int64)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 12: Approximation of closeness centrality\n")
     @printf("------------------------------------------------------\n")
@@ -317,7 +297,6 @@ end
 
 """ Exercise 13 """
 function exercise13(graphPath::String)
-    @printf("\n\n")
     @printf("------------------------------------------------------\n")
     @printf("Exercise 13: Top node with respect to closeness\n")
     @printf("------------------------------------------------------\n")
@@ -325,9 +304,9 @@ function exercise13(graphPath::String)
     c = closeness_centrality(g)
     t = argmax(c)
     @printf("Node: %d\n", t)
+    @printf("Value: %f\n", c[t])
     nothing
 end
-
 
 const graphPath::String = joinpath("graphs", "douban.maxcc.lg")
 
@@ -335,14 +314,15 @@ const graphPath::String = joinpath("graphs", "douban.maxcc.lg")
 #@time exercise2(graphPath)
 #@time exercise2_mt(graphPath)
 #@time exercise3(graphPath, 100)
+#@time exercise3_mt(graphPath, 100)
 #@time exercise_plot(graphPath)
 #@time exercise4(graphPath)
 #@time exercise5(graphPath, 100)
 #@time exercise6(graphPath)
 #@time exercise7(graphPath)
-#time exercise8(graphPath)
+#@time exercise8(graphPath)
 #@time exercise9(graphPath)
 #@time exercise10(graphPath)
 #@time exercise11(graphPath)
-@time exercise12(graphPath, 10000)
+#@time exercise12(graphPath, 10000)
 #@time exercise13(graphPath)
